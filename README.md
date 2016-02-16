@@ -12,7 +12,7 @@ The following steps are required of anybody participating in this introduction.
    emailing me. (Or the list, if you don't know my email.)
 3. [Install](https://help.github.com/articles/set-up-git/) git on your laptop
   1. You can also use git installation on a server you can SSH into.
-  2. The [Github client](https://help.github.com/articles/set-up-git/) doesn't
+  2. The [Github client](https://desktop.github.com/) doesn't
      count.
 4. [Add a public key](https://help.github.com/categories/ssh/) to your Github
    account. The private key should be on the computer you plan to use.
