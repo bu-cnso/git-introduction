@@ -14,6 +14,9 @@ The following steps are required of anybody participating in this introduction.
   1. You can also use git installation on a server you can SSH into.
   2. The [Github client](https://desktop.github.com/) doesn't
      count.
+    1. Except that's the way Github recommends you to install git on Windows.
+       We won't be discussing the graphical client, so make sure you can do
+       step 5 from the command-line.
 4. [Add a public key](https://help.github.com/categories/ssh/) to your Github
    account. The private key should be on the computer you plan to use.
 5. Create an initial repository for your user and follow the instructions to
