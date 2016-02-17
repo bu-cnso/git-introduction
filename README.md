@@ -128,7 +128,7 @@ Any changes you commit will now be tracked by this branch. Set this branch to
      * [new branch]      new_contributor -> new_contributor
     Branch new_contributor set up to track remote branch new_contributor from origin.
 
-We see a [new branch](branches) in Github.
+We see a [new branch](../../branches) in Github.
 
 ![new branch](images/new_branch.png)
 
