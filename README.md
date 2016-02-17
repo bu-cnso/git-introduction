@@ -24,9 +24,14 @@ The following steps are required of anybody participating in this introduction.
 
 ## Lesson plan
 
+Note that lines beginning with `$ ` are shell commands, and the lines following
+it are example output. Do not type the `$ ` prompt.
+
 Begin by setting the USER variable to your Github username:
 
-    $ export USER=...
+```bash
+$ export USER=...
+```
 
 Or just note that whenever you see `$USER`, you're supposed to put in your
 username.
@@ -74,11 +79,21 @@ We can see the initial state by running the following:
     Your branch is up-to-date with 'origin/master'.
 
     nothing to commit, working directory clean
+    $ git log --oneline
+    7f177b7 Merge pull request #1 from effigies/prerequisites
+    5d72ac3 Add Windows caveat
+    edfcd33 Miscopied URL
+    66ce13d Add prerequisites
+    2f44ab8 Start with README
 
 Let's set an upstream remote:
 
     $ remote add upstream git@github.com:bu-cnso/introduction.git
     $ git remote -v
+    origin  git@github.com:$USER/introduction.git (fetch)
+    origin  git@github.com:$USER/introduction.git (push)
+    upstream    git@github.com:bu-cnso/introduction.git (fetch)
+    upstream    git@github.com:bu-cnso/introduction.git (push)
     $ git fetch upstream
     From github.com:bu-cnso/introduction
      * [new branch]      master     -> upstream/master
