@@ -132,6 +132,46 @@ We see a [new branch](../../branches) in Github.
 
 ![new branch](images/new_branch.png)
 
+Add ourselves to the `CONTRIBUTORS` file:
+
+    $ echo $USER >> CONTRIBUTORS
+    $ git status
+    On branch new_contributor
+    Your branch is up-to-date with 'origin/new_contributor'.
+
+    Changes not staged for commit:
+      (use "git add <file>..." to update what will be committed)
+      (use "git checkout -- <file>..." to discard changes in working directory)
+
+            modified:   CONTRIBUTORS
+
+    no changes added to commit (use "git add" and/or "git commit -a")
+
+*Stage* the new change:
+
+    $ git add CONTRIBUTORS
+    $ git status
+    On branch new_contributor
+    Your branch is up-to-date with 'origin/new_contributor'.
+
+    Changes to be committed:
+      (use "git reset HEAD <file>..." to unstage)
+
+            modified:   CONTRIBUTORS
+
+*Commit* the change and push (to `origin`, which we've set as the default):
+
+    $ git commit -m "New contributor: $USER"
+    $ git push
+    Counting objects: 5, done.
+    Delta compression using up to 4 threads.
+    Compressing objects: 100% (2/2), done.
+    Writing objects: 100% (3/3), 309 bytes | 0 bytes/s, done.
+    Total 3 (delta 0), reused 0 (delta 0)
+    To git@github.com:$USER/introduction.git
+       7f177b7..d89a96d  new_contributor -> new_contributor
+
+
 # About README.md
 
 This file is written in
