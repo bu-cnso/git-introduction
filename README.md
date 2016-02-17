@@ -98,6 +98,40 @@ Let's set an upstream remote:
     From github.com:bu-cnso/introduction
      * [new branch]      master     -> upstream/master
 
+### Starting a branch
+
+Unless you're *really* forking (i.e. intend to maintain your own copy of the
+project), what you often want to do is make a change and get it accepted into
+the main repository.
+
+If it's been a while since you forked, `upstream` may have been updated. As a
+rule, start new branches off of `upstream/master`, not *your* repository.
+
+    $ git fetch upstream
+    $ git checkout upstream/master
+    HEAD is now at 7f177b7... Merge pull request #1 from effigies/prerequisites
+    $ git status
+    HEAD detached at upstream/master
+    nothing to commit, working directory clean
+
+Create a branch by checking it out:
+
+    $ git checkout -b new_contributor
+    Switched to a new branch 'new_contributor'
+
+Any changes you commit will now be tracked by this branch. Set this branch to
+"track" the remote `origin` (YOUR repository).
+
+    $ git push -u origin new_contributor
+    Total 0 (delta 0), reused 0 (delta 0)
+    To git@github.com:$USER/introduction.git
+     * [new branch]      new_contributor -> new_contributor
+    Branch new_contributor set up to track remote branch new_contributor from origin.
+
+We see a [new branch](branches) in Github.
+
+![new branch](images/new_branch.png)
+
 # About README.md
 
 This file is written in
