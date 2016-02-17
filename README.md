@@ -36,6 +36,15 @@ $ export USER=...
 Or just note that whenever you see `$USER`, you're supposed to put in your
 username.
 
+### Some very quick terminology
+
+A *repository* is a directory, its contents, and its history.
+
+A *commit* is a snapshot of the directory contents. A commit usually has one
+parent, sometimes two, and rarely zero.
+
+The history of the repository is a collection of commits.
+
 ### Forking a project
 
 When you want to contribute code to a project, you will often begin by forking,
@@ -56,7 +65,9 @@ You can then clone your own repository:
 
 Cloning copies the repository, sets the cloning URL as the `origin` remote, and
 checks out the `master` branch. We'll become more familiar with remotes and
-branches as we continue.
+branches as we continue, but basically a remote is another copy of the same
+respository, and a branch is a particular history (series of commits) of the
+repository.
 
     $ cd introduction
     $ ls -AF
