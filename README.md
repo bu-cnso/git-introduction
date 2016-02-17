@@ -22,6 +22,15 @@ The following steps are required of anybody participating in this introduction.
 5. Create an initial repository for your user and follow the instructions to
    make an initial commit.
 
+## Lesson plan
+
+### Forking a project
+
+When you want to contribute code to a project, you will often begin by forking,
+which simply copies the entire repository under your user.
+
+![forking](images/fork.png)
+
 # About README.md
 
 This file is written in
