@@ -11,7 +11,7 @@ The following steps are required of anybody participating in this introduction.
 2. Request to join the [bu-cnso](https://github.com/bu-cnso) group by
    emailing me. (Or the list, if you don't know my email.)
 3. [Install](https://help.github.com/articles/set-up-git/) git on your laptop
-  1. You can also use git installation on a server you can SSH into.
+  1. You can also use a git installation on a server you can SSH into.
   2. The [Github client](https://desktop.github.com/) doesn't
      count.
     1. Except that's the way Github recommends you to install git on Windows.
