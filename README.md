@@ -22,6 +22,34 @@ The following steps are required of anybody participating in this introduction.
 5. Create an initial repository for your user and follow the instructions to
    make an initial commit.
 
+## Lesson plan
+
+Note that lines beginning with `$ ` are shell commands, and the lines following
+it are example output. Do not type the `$ ` prompt.
+
+Begin by setting the USER variable to your Github username:
+
+```bash
+$ export USER=...
+```
+
+Or just note that whenever you see `$USER`, you're supposed to put in your
+username.
+
+### Some very quick terminology
+
+A *repository* is a directory, its contents, and its history.
+
+A *commit* is a snapshot of the directory contents. A commit usually has one
+parent, sometimes two, and rarely zero.
+
+The history of the repository is a collection of commits.
+
+### Topics
+
+* The [Github model](github_model.md)
+* Personal projects
+
 # About README.md
 
 This file is written in
