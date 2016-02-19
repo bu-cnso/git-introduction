@@ -67,7 +67,7 @@ Let's set an upstream remote:
     From github.com:bu-cnso/introduction
      * [new branch]      master     -> upstream/master
 
-### Summary of commands
+#### Summary of commands
 
 * `git clone` - Copy repository
 * `git remote -v` - View remotes (verbose mode)
@@ -149,7 +149,7 @@ Add ourselves to the `CONTRIBUTORS` file:
     To git@github.com:$USER/introduction.git
        7f177b7..d89a96d  new_contributor -> new_contributor
 
-### Summary of commands
+#### Summary of commands
 
 * `git fetch` - Retrieve recent branches from remote
 * `git checkout` - Set repository to a known state (commit)
