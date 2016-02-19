@@ -1,7 +1,7 @@
 # The Github Model
 
-Github encourages a particular perspective of how to work in git, and it's
-encapsulated by the idea of the pull request.
+Github encourages a particular perspective of how to work in git, which centers
+around the pull request.
 
 ## Forking a project
 
@@ -89,7 +89,7 @@ Create a branch by checking it out:
     Switched to a new branch 'new_contributor'
 
 Any changes you commit will now be tracked by this branch. Set this branch to
-"track" the remote `origin` (YOUR repository).
+"track" the remote `origin` (*your* repository on Github).
 
     $ git push -u origin new_contributor
     Total 0 (delta 0), reused 0 (delta 0)
@@ -128,7 +128,7 @@ Add ourselves to the `CONTRIBUTORS` file:
 
             modified:   CONTRIBUTORS
 
-*Commit* the change and push (to `origin`, which we've set as the default):
+*Commit* the change and *push* (to `origin`, which we've set as the default):
 
     $ git commit -m "New contributor: $USER"
     $ git push
