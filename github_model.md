@@ -3,7 +3,7 @@
 Github encourages a particular perspective of how to work in git, and it's
 encapsulated by the idea of the pull request.
 
-### Forking a project
+## Forking a project
 
 When you want to contribute code to a project, you will often begin by forking,
 which simply copies the entire repository under your user.
@@ -57,7 +57,7 @@ We can see the initial state by running the following:
 
 Let's set an upstream remote:
 
-    $ remote add upstream git@github.com:bu-cnso/introduction.git
+    $ git remote add upstream git@github.com:bu-cnso/introduction.git
     $ git remote -v
     origin  git@github.com:$USER/introduction.git (fetch)
     origin  git@github.com:$USER/introduction.git (push)
@@ -67,7 +67,7 @@ Let's set an upstream remote:
     From github.com:bu-cnso/introduction
      * [new branch]      master     -> upstream/master
 
-### Starting a branch
+## Starting a branch
 
 Unless you're *really* forking (i.e. intend to maintain your own copy of the
 project), what you often want to do is make a change and get it accepted into
@@ -140,7 +140,7 @@ Add ourselves to the `CONTRIBUTORS` file:
     To git@github.com:$USER/introduction.git
        7f177b7..d89a96d  new_contributor -> new_contributor
 
-### Making a pull request (PR)
+## Making a pull request (PR)
 
 A pull request alerts the upstream repository owner that you're ready to
 contribute.
@@ -163,3 +163,29 @@ merges creates a legible history of branching and merging.
 
 There are other ways to manage a project, even on Github. But this is a
 model that Github is well-suited for.
+
+## Summary of `git` commands introduced
+
+* [`git clone`](https://git-scm.com/docs/git-clone) - Download and set up an
+    entire repository
+* [`git remote`](https://git-scm.com/docs/git-remote) - View/manage remote
+    repositories
+* [`git status`](https://git-scm.com/docs/git-status) - View branch information
+    and status of files in repository
+* [`git log`](https://git-scm.com/docs/git-log) - View commit history of
+    current repository state
+* [`git fetch`](https://git-scm.com/docs/git-fetch) - Retrieve commits from
+    remotes
+* [`git checkout`](https://git-scm.com/docs/git-checkout) - Set repository
+    state to a known commit
+  * `git checkout -b` - Create a new branch at current commit
+* [`git add`](https://git-scm.com/docs/git-add) - Stage a change (prepare to
+    commit)
+* [`git commit`](https://git-scm.com/docs/git-commit) - Create a history node
+* [`git push`](https://git-scm.com/docs/git-push) - Copy commit history from
+    current branch to remote
+  * `git push -u` - Set branch on remote current branch should track
+
+You can play with a number of these commands to get a sense of what they're
+doing behind the scenes here: [Visualizing Git Concepts with
+D3](https://onlywei.github.io/explain-git-with-d3/)
