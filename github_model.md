@@ -12,14 +12,16 @@ which simply copies the entire repository under your user.
 
 You can then clone your own repository:
 
-    $ git clone git@github.com:$USER/introduction.git
-    Cloning into 'introduction'...
-    remote: Counting objects: 21, done.
-    remote: Compressing objects: 100% (14/14), done.
-    remote: Total 21 (delta 3), reused 0 (delta 0), pack-reused 3
-    Receiving objects: 100% (21/21), 15.75 KiB | 0 bytes/s, done.
-    Resolving deltas: 100% (3/3), done.
-    Checking connectivity... done.
+```ShellSession
+$ git clone git@github.com:$USER/introduction.git
+Cloning into 'introduction'...
+remote: Counting objects: 21, done.
+remote: Compressing objects: 100% (14/14), done.
+remote: Total 21 (delta 3), reused 0 (delta 0), pack-reused 3
+Receiving objects: 100% (21/21), 15.75 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (3/3), done.
+Checking connectivity... done.
+```
 
 Cloning copies the repository, sets the cloning URL as the `origin` remote, and
 checks out the `master` branch. We'll become more familiar with remotes and
@@ -27,12 +29,14 @@ branches as we continue, but basically a remote is another copy of the same
 respository, and a branch is a particular history (series of commits) of the
 repository.
 
-    $ cd introduction
-    $ ls -AF
-    .git/  images/  README.md
-    $ ls -AF .git
-    branches/  info/  objects/  config       FETCH_HEAD  index
-    hooks/     logs/  refs/     description  HEAD        packed-refs
+```ShellSession
+$ cd introduction
+$ ls -AF
+.git/  images/  README.md
+$ ls -AF .git
+branches/  info/  objects/  config       FETCH_HEAD  index
+hooks/     logs/  refs/     description  HEAD        packed-refs
+```
 
 The state of the repository is kept in `.git`. You'll rarely have cause to
 manipulate it directly, but when you run a `git` command, this is where it
@@ -40,32 +44,36 @@ does most of its work.
 
 We can see the initial state by running the following:
 
-    $ git remote -v
-    origin  git@github.com:$USER/introduction.git (fetch)
-    origin  git@github.com:$USER/introduction.git (push)
-    $ git status
-    On branch master
-    Your branch is up-to-date with 'origin/master'.
+```ShellSession
+$ git remote -v
+origin  git@github.com:$USER/introduction.git (fetch)
+origin  git@github.com:$USER/introduction.git (push)
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
 
-    nothing to commit, working directory clean
-    $ git log --oneline
-    7f177b7 Merge pull request #1 from effigies/prerequisites
-    5d72ac3 Add Windows caveat
-    edfcd33 Miscopied URL
-    66ce13d Add prerequisites
-    2f44ab8 Start with README
+nothing to commit, working directory clean
+$ git log --oneline
+7f177b7 Merge pull request #1 from effigies/prerequisites
+5d72ac3 Add Windows caveat
+edfcd33 Miscopied URL
+66ce13d Add prerequisites
+2f44ab8 Start with README
+```
 
 Let's set an upstream remote:
 
-    $ git remote add upstream git@github.com:bu-cnso/introduction.git
-    $ git remote -v
-    origin  git@github.com:$USER/introduction.git (fetch)
-    origin  git@github.com:$USER/introduction.git (push)
-    upstream    git@github.com:bu-cnso/introduction.git (fetch)
-    upstream    git@github.com:bu-cnso/introduction.git (push)
-    $ git fetch upstream
-    From github.com:bu-cnso/introduction
-     * [new branch]      master     -> upstream/master
+```ShellSession
+$ git remote add upstream git@github.com:bu-cnso/introduction.git
+$ git remote -v
+origin  git@github.com:$USER/introduction.git (fetch)
+origin  git@github.com:$USER/introduction.git (push)
+upstream    git@github.com:bu-cnso/introduction.git (fetch)
+upstream    git@github.com:bu-cnso/introduction.git (push)
+$ git fetch upstream
+From github.com:bu-cnso/introduction
+ * [new branch]      master     -> upstream/master
+```
 
 #### Summary of commands
 
@@ -85,26 +93,32 @@ the main repository.
 If it's been a while since you forked, `upstream` may have been updated. As a
 rule, start new branches off of `upstream/master`, not *your* repository.
 
-    $ git fetch upstream
-    $ git checkout upstream/master
-    HEAD is now at 7f177b7... Merge pull request #1 from effigies/prerequisites
-    $ git status
-    HEAD detached at upstream/master
-    nothing to commit, working directory clean
+```ShellSession
+$ git fetch upstream
+$ git checkout upstream/master
+HEAD is now at 7f177b7... Merge pull request #1 from effigies/prerequisites
+$ git status
+HEAD detached at upstream/master
+nothing to commit, working directory clean
+```
 
 Create a branch by checking it out:
 
-    $ git checkout -b new_contributor
-    Switched to a new branch 'new_contributor'
+```ShellSession
+$ git checkout -b new_contributor
+Switched to a new branch 'new_contributor'
+```
 
 Any changes you commit will now be tracked by this branch. Set this branch to
 "track" the remote `origin` (*your* repository on Github).
 
-    $ git push -u origin new_contributor
-    Total 0 (delta 0), reused 0 (delta 0)
-    To git@github.com:$USER/introduction.git
-     * [new branch]      new_contributor -> new_contributor
-    Branch new_contributor set up to track remote branch new_contributor from origin.
+```ShellSession
+$ git push -u origin new_contributor
+Total 0 (delta 0), reused 0 (delta 0)
+To git@github.com:$USER/introduction.git
+ * [new branch]      new_contributor -> new_contributor
+Branch new_contributor set up to track remote branch new_contributor from origin.
+```
 
 We see a [new branch](../../branches) in Github.
 
@@ -112,42 +126,48 @@ We see a [new branch](../../branches) in Github.
 
 Add ourselves to the `CONTRIBUTORS` file:
 
-    $ echo $USER >> CONTRIBUTORS
-    $ git status
-    On branch new_contributor
-    Your branch is up-to-date with 'origin/new_contributor'.
+```ShellSession
+$ echo $USER >> CONTRIBUTORS
+$ git status
+On branch new_contributor
+Your branch is up-to-date with 'origin/new_contributor'.
 
-    Changes not staged for commit:
-      (use "git add <file>..." to update what will be committed)
-      (use "git checkout -- <file>..." to discard changes in working directory)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
 
-            modified:   CONTRIBUTORS
+        modified:   CONTRIBUTORS
 
-    no changes added to commit (use "git add" and/or "git commit -a")
+no changes added to commit (use "git add" and/or "git commit -a")
+```
 
 *Stage* the new change:
 
-    $ git add CONTRIBUTORS
-    $ git status
-    On branch new_contributor
-    Your branch is up-to-date with 'origin/new_contributor'.
+```ShellSession
+$ git add CONTRIBUTORS
+$ git status
+On branch new_contributor
+Your branch is up-to-date with 'origin/new_contributor'.
 
-    Changes to be committed:
-      (use "git reset HEAD <file>..." to unstage)
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
 
-            modified:   CONTRIBUTORS
+        modified:   CONTRIBUTORS
+```
 
 *Commit* the change and *push* (to `origin`, which we've set as the default):
 
-    $ git commit -m "New contributor: $USER"
-    $ git push
-    Counting objects: 5, done.
-    Delta compression using up to 4 threads.
-    Compressing objects: 100% (2/2), done.
-    Writing objects: 100% (3/3), 309 bytes | 0 bytes/s, done.
-    Total 3 (delta 0), reused 0 (delta 0)
-    To git@github.com:$USER/introduction.git
-       7f177b7..d89a96d  new_contributor -> new_contributor
+```ShellSession
+$ git commit -m "New contributor: $USER"
+$ git push
+Counting objects: 5, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 309 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To git@github.com:$USER/introduction.git
+   7f177b7..d89a96d  new_contributor -> new_contributor
+```
 
 #### Summary of commands
 
