@@ -67,6 +67,15 @@ Let's set an upstream remote:
     From github.com:bu-cnso/introduction
      * [new branch]      master     -> upstream/master
 
+### Summary of commands
+
+* `git clone` - Copy repository
+* `git remote -v` - View remotes (verbose mode)
+* `git log --oneline` - Print log of commits (in short format)
+* `git remote add` - Add a new remote
+* `git fetch` - Retrieve branches from remote
+* `git status` - View current repositorys status
+
 ## Starting a branch
 
 Unless you're *really* forking (i.e. intend to maintain your own copy of the
@@ -139,6 +148,17 @@ Add ourselves to the `CONTRIBUTORS` file:
     Total 3 (delta 0), reused 0 (delta 0)
     To git@github.com:$USER/introduction.git
        7f177b7..d89a96d  new_contributor -> new_contributor
+
+### Summary of commands
+
+* `git fetch` - Retrieve recent branches from remote
+* `git checkout` - Set repository to a known state (commit)
+* `git checkout -b` - Create a new branch at current commit
+* `git push -u <REMOTE> <BRANCH>` - Set the current branch to track `<BRANCH>`
+    on `<REMOTE>` (creates remote branch, if necessary)
+* `git add` - Stage (prepare to commit) a file
+* `git commit -m <MESSAGE>` - Commit files with a *commit message*
+* `git push` - Send the current branch to its tracking branch
 
 ## Making a pull request (PR)
 
