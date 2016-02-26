@@ -13,7 +13,7 @@ which simply copies the entire repository under your user.
 You can then clone your own repository:
 
 ```ShellSession
-$ git clone git@github.com:$USER/introduction.git
+$ git clone git@github.com:$USER/git-introduction.git
 Cloning into 'introduction'...
 remote: Counting objects: 21, done.
 remote: Compressing objects: 100% (14/14), done.
