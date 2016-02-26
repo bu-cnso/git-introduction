@@ -10,7 +10,13 @@ for looking at your repository history. You could just as well use
 [Gitlab](https://about.gitlab.com/), if you're comfortable or want to become
 comfortable with some system administration.
 
-## Preparation
+## Simulation
+
+Fork [fmri_python](https://github.com/bu-cnso/fmri_python/). This is a
+repository where I simulate the process of managing a repository on different
+machines, represented by different branches.
+
+### Starting a repository
 
 Let's assume we've been working for a while, and want to start managing our
 project with git.
@@ -41,6 +47,31 @@ $ git commit -m 'Functions to work with FreeSurfer datasets'
 [master  cf6bc4b] Functions to work with FreeSurfer datasets
  1 file changed, 131 insertions(+), 0 deletions(-)
  create mode 100644 freesurfer.py
+```
+
+### Using GitHub as a remote
+
+Create a GitHub repository:
+
+![new repo](images/new_repo.png)
+
+Like so...
+
+![repo details](images/repo_details.png)
+
+And push our repository:
+
+```ShellSession
+$ git remote add origin git@github.com:$USER/fmri_python.git
+$ git push -u origin master
+Counting objects: 13, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (13/13), 4.19 KiB | 0 bytes/s, done.
+Total 13 (delta 3), reused 13 (delta 3)
+To git@github.com:effigies/sandbox.git
+ + 76ecddb...645e0c4 master -> master
+ Branch master set up to track remote branch master from origin.
 ```
 
 ## Aside: Dealing with `v1 ... vN` files
