@@ -159,6 +159,16 @@ $ git checkout -b cluster
 Switched to a new branch 'cluster'
 ```
 
+Changes such as a `qsub` submitter for Python scripts:
+
+```ShellSession
+$ git add submitter.sh
+$ git commit -m 'Add python script submitter'
+[cluster  b80579a] Add python script submitter
+ 1 file changed, 71 insertions(+), 0 deletions(-)
+ create mode 100644 submitter.sh
+```
+
 ##### Simulation setup
 
 Check out the cluster branch:
