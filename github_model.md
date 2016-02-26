@@ -124,10 +124,10 @@ We see a [new branch](../../branches) in Github.
 
 ![new branch](images/new_branch.png)
 
-Add ourselves to the `CONTRIBUTORS` file:
+Add ourselves to the `PARTICIPANTS` file:
 
 ```ShellSession
-$ echo $USER >> CONTRIBUTORS
+$ echo $USER >> PARTICIPANTS
 $ git status
 On branch new_contributor
 Your branch is up-to-date with 'origin/new_contributor'.
@@ -136,7 +136,7 @@ Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
 
-        modified:   CONTRIBUTORS
+        modified:   PARTICIPANTS
 
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
@@ -144,7 +144,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 *Stage* the new change:
 
 ```ShellSession
-$ git add CONTRIBUTORS
+$ git add PARTICIPANTS
 $ git status
 On branch new_contributor
 Your branch is up-to-date with 'origin/new_contributor'.
@@ -152,7 +152,7 @@ Your branch is up-to-date with 'origin/new_contributor'.
 Changes to be committed:
   (use "git reset HEAD <file>..." to unstage)
 
-        modified:   CONTRIBUTORS
+        modified:   PARTICIPANTS
 ```
 
 *Commit* the change and *push* (to `origin`, which we've set as the default):
