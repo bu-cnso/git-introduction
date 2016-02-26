@@ -16,6 +16,9 @@ Fork [fmri_python](https://github.com/bu-cnso/fmri_python/). This is a
 repository where I simulate the process of managing a repository on different
 machines, represented by different branches.
 
+I will walk you through how we set things up, but the **Simulation setup**
+subheadings will be actual instructions you need to participate.
+
 ### Starting a repository
 
 Let's assume we've been working for a while, and want to start managing our
@@ -74,9 +77,20 @@ To git@github.com:effigies/sandbox.git
  Branch master set up to track remote branch master from origin.
 ```
 
+##### Simulation setup
+
+To get to this point, simply clone the repository onto your computer.
+
+```ShellSession
+$ git clone git@github.com:$USER/fmri_python.git
+$ cd fmri_python
+```
+
+Your GitHub fork is automatically set up as a remote, so you're all set.
+
 ### Working from other machines
 
-Cloning the repository onto a second machine:
+Cloning the repository onto a laptop, so we can work from home:
 
 ```ShellSession
 $ git clone git@github.com:$USER/fmri_python.git
@@ -89,8 +103,41 @@ Resolving deltas: 100% (9/9), done.
 Checking connectivity... done.
 ```
 
-And while we're at it, we're going to want these files available on the
+Remember that this automatically sets up the cloned URL as `origin`, so we
+don't need to `git remote add origin ...`.
+
+We don't have [mne](https://github.com/mne-tools/mne-python) installed on our
+laptop, so we make a couple quick changes so we can use the other functions in
+`images.py`, and commit those.
+
+```ShellSession
+$ git add images.py
+$ git commit -m 'Import mne when needed'
+[master  e791227] Import mne when needed
+ 1 file changed, 2 insertions(+), 1 deletions(-)
+```
+
+##### Simulation setup
+
+First checkout the `laptop/master` branch:
+
+```ShellSession
+$ git checkout -t origin/laptop/master
+Branch laptop/master set up to track remote branch laptop/master from origin.
+Switched to a new branch 'laptop/master'
+```
+
+Then set `laptop/master` to track `origin/master`:
+
+```ShellSession
+$ git branch --set-upstream-to origin/master
+Branch laptop/master set up to track remote branch master from origin.
+```
+
+### Setting up a variant repository
+We're going to want these files available on the
 [SCC](https://www.bu.edu/tech/support/research/computing-resources/scc/):
+
 ```ShellSession
 $ ssh scc1.bu.edu
 $USER@scc1.bu.edu's password: 
@@ -102,6 +149,24 @@ remote: Total 22 (delta 9), reused 21 (delta 8), pack-reused 0
 Receiving objects: 100% (22/22), 5.72 KiB | 0 bytes/s, done.
 Resolving deltas: 100% (9/9), done.
 Checking connectivity... done.
+```
+
+There are some things unique to the SCC, so we set up a branch to manage our
+cluster-specific changes.
+
+```ShellSession
+$ git checkout -b cluster
+Switched to a new branch 'cluster'
+```
+
+##### Simulation setup
+
+Check out the cluster branch:
+
+```ShellSession
+$ git checkout -t origin/cluster
+Branch cluster set up to track remote branch cluster from origin.
+Switched to a new branch 'cluster'
 ```
 
 ## Aside: Dealing with `v1 ... vN` files
