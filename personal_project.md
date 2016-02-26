@@ -52,6 +52,12 @@ $ git commit -m 'Functions to work with FreeSurfer datasets'
  create mode 100644 freesurfer.py
 ```
 
+#### Summary of commands
+
+* `git init` - Begin tracking changes in the *current directory*
+* `git add` - Stage (prepare to commit) a file
+* `git commit -m <MESSAGE>` - Commit files with a *commit message*
+
 ### Using GitHub as a remote
 
 Create a GitHub repository:
@@ -77,7 +83,7 @@ To git@github.com:effigies/sandbox.git
  Branch master set up to track remote branch master from origin.
 ```
 
-##### Simulation setup
+#### Simulation setup
 
 To get to this point, simply clone the repository onto your computer.
 
@@ -87,6 +93,13 @@ $ cd fmri_python
 ```
 
 Your GitHub fork is automatically set up as a remote, so you're all set.
+
+#### Summary of commands
+
+* `git remote add <REMOTE> <URL>` - Add a new remote copy of the repository
+* `git push -u <REMOTE> <BRANCH>` - Set the current branch to track `<BRANCH>`
+   on `<REMOTE>` (creates remote branch, if necessary)
+* `git clone <URL>` - Copy repository from remote URL
 
 ### Working from other machines
 
@@ -150,7 +163,7 @@ $ git commit -m 'Import mne when needed'
  1 file changed, 2 insertions(+), 1 deletions(-)
 ```
 
-##### Simulation setup
+#### Simulation setup
 
 First checkout the `laptop/master` branch:
 
@@ -166,6 +179,14 @@ Then set `laptop/master` to track `origin/master`:
 $ git branch --set-upstream-to origin/master
 Branch laptop/master set up to track remote branch master from origin.
 ```
+
+#### Summary of commands
+
+* `git diff` - Show untracked changes to working directory
+* `git add` - Stage (prepare to commit) *changes* (not just new files)
+* `git checkout -t` - Create new branch with the same name as a remote branch
+* `git branch --set-upstream-to` - Change the *tracking branch* of the current
+  branch
 
 ### Setting up a variant repository
 We're going to want these files available on the
@@ -202,7 +223,7 @@ $ git commit -m 'Add python script submitter'
  create mode 100644 submitter.sh
 ```
 
-##### Simulation setup
+#### Simulation setup
 
 Check out the cluster branch:
 
@@ -211,6 +232,10 @@ $ git checkout -t origin/cluster
 Branch cluster set up to track remote branch cluster from origin.
 Switched to a new branch 'cluster'
 ```
+
+#### Summary of commands
+
+* `git checkout -b` - Create new branch at the current commit
 
 ### Conflicting merge
 
@@ -252,9 +277,14 @@ And we like this change, so push it to GitHub:
 $ git push
 ```
 
-##### Simulation setup
+#### Simulation setup
 
 No setup needed. You're caught up, now. Follow along from here on out.
+
+#### Summary of commands
+
+* `git push` - Push local commits to the *tracking branch*, usually a branch
+  on a remote, like `origin/master`
 
 ## Conflict Resolution
 
@@ -366,7 +396,18 @@ To git@github.com:$USER/fmri_python.git
    e791227..e57b4e9  laptop/master -> master
 ```
 
-#### Bonus: Incomplete merge
+#### Summary of commands
+
+* `git push <REMOTE> <LOCAL BRANCH>:<REMOTE BRANCH>` - Explicitly copy commits
+  from a local branch to a remote branch
+* `git pull` - Pull changes from `tracking branch`, merging automatically, if
+  possible
+* `git status` - View current repository's status
+* `git add` - Stage changes for the `in-progress` merge commit
+* `git commit` - Complete merge commit (without `-m`: open default commit
+  message in text editor)
+
+### Bonus: Incomplete merge
 
 Let's look at the log, and make sure we really just
 
@@ -410,6 +451,14 @@ $ git revert e57b4e9 -m 2
 $ git push
 ```
 
+#### Summary of commands
+
+* `git log --oneline` - Show commits in the current branch's history
+* `git diff <COMMIT>` - Show difference between current repository state and
+  COMMIT
+* `git revert <COMMIT>` - Add a commit undoing the changes of a previous commit
+  * `git revert -m 2` - Revert up the secondary branch
+
 ## Updating the `cluster` branch
 
 We've now done a lot of work, and we want to pull our changes onto the SCC.
@@ -444,6 +493,11 @@ push your cluster branch, so it's backed up on GitHub.
 ```ShellSession
 $ git push
 ```
+
+#### Summary of commands
+
+* `git fetch <REMOTE>` - Download commits from a remote repository
+* `git merge <REMOTE>/<BRANCH>` - Attempt to merge changes from a remote branch
 
 ## Aside: Dealing with `v1 ... vN` files
 
@@ -523,3 +577,8 @@ Changes to be committed:
 
     new file:   script_v2.m
 ```
+
+#### Summary of commands
+
+* `git checkout <BRANCH> <FILE>` - Bring the version of a file from a specific
+  branch into the working directory
