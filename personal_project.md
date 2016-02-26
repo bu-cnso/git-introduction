@@ -276,9 +276,9 @@ To git@github.com:$USER/fmri_python.git
  hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 ```
 
-*Note that this `git push` command is a little more complicated than usual.
-Because `laptop/master` != `master`, we have to specify the remote name, local
-branch, and remote branch.*
+*Note that this is a little complicated than the usual `git push`. Because
+`laptop/master` ≠ `master`, we have to specify the remote name, local branch,
+and remote branch. This is messiness caused by the simulation. Sorry.*
 
 It asks us to pull first, so we pull:
 
@@ -322,6 +322,49 @@ except ImportError:
 
 `HEAD` indicates your local changes. The SHA1 hash indicates the commit we're
 merging in.
+
+We decided that we liked the remote version better, so let's go with that:
+
+```Python
+...
+import nibabel as nib
+try:
+    import mne
+except ImportError:
+    pass
+
+...
+```
+
+Now that we've resolved, let's complete the merge.
+
+```ShellSession
+$ git add images.py
+$ git commit
+```
+
+A text editor will pop up, with a default merge message.
+
+```
+Merge branch 'master' of github.com:$USER/fmri_python into laptop/master
+
+Conflicts:
+        images.py
+```
+
+Save and close it to effect the commit, then push to `origin`.
+
+```ShellSession
+[laptop/master  e57b4e9] Merge branch 'master' of github.com:$USER/fmri_python into laptop/master
+$ git push origin laptop/master:master
+Counting objects: 9, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 818 bytes | 0 bytes/s, done.
+Total 3 (delta 2), reused 0 (delta 0)
+To git@github.com:$USER/fmri_python.git
+   e791227..e57b4e9  laptop/master -> master
+```
 
 ## Aside: Dealing with `v1 ... vN` files
 
