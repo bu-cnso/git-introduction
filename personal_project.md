@@ -409,7 +409,7 @@ To git@github.com:$USER/fmri_python.git
 
 ### Bonus: Incomplete merge
 
-Let's look at the log, and make sure we really just
+Let's look at the log, and make sure we really did what we wanted.
 
 ```ShellSession
 $ git log --oneline | head -n 3
