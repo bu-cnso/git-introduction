@@ -74,6 +74,36 @@ To git@github.com:effigies/sandbox.git
  Branch master set up to track remote branch master from origin.
 ```
 
+### Working from other machines
+
+Cloning the repository onto a second machine:
+
+```ShellSession
+$USER@laptop $ git clone git@github.com:$USER/fmri_python.git
+Cloning into 'fmri_python'...
+remote: Counting objects: 22, done.
+remote: Compressing objects: 100% (14/14), done.
+remote: Total 22 (delta 9), reused 21 (delta 8), pack-reused 0
+Receiving objects: 100% (22/22), 5.72 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (9/9), done.
+Checking connectivity... done.
+```
+
+And while we're at it, we're going to want these files available on the
+[SCC](https://www.bu.edu/tech/support/research/computing-resources/scc/):
+```ShellSession
+$ ssh scc1.bu.edu
+$USER@scc1.bu.edu's password: 
+$USER@scc.bu.edu$ git clone git@github.com:$USER/fmri_python.git
+Cloning into 'fmri_python'...
+remote: Counting objects: 22, done.
+remote: Compressing objects: 100% (14/14), done.
+remote: Total 22 (delta 9), reused 21 (delta 8), pack-reused 0
+Receiving objects: 100% (22/22), 5.72 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (9/9), done.
+Checking connectivity... done.
+```
+
 ## Aside: Dealing with `v1 ... vN` files
 
 A pretty common precursor to version control is to simply copy working versions
