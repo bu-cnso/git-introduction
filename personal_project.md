@@ -111,6 +111,39 @@ laptop, so we make a couple quick changes so we can use the other functions in
 `images.py`, and commit those.
 
 ```ShellSession
+$ git diff
+```
+```Diff
+t a/images.py b/images.py
+index 84d5c68..a0736cc 100644
+--- a/images.py
++++ b/images.py
+@@ -7,7 +7,6 @@ import numpy as np
+ import scipy as sp
+ import scipy.stats
+ import nibabel as nib
+-import mne
+
+
+ def mean_images(overlays):
+@@ -30,6 +29,7 @@ def t_test_normalized_images(overlays):
+
+ def t_test_images(images, popmean=0.0):
+     """Perform per-entry t-test on nibabel spatial images"""
++    import mne
+     stack = nib.concat_images(images, check_affines=False)
+
+     tstats, pvalues = sp.stats.ttest_1samp(stack.get_data(), popmean, axis=3)
+@@ -41,6 +41,7 @@ def t_test_images(images, popmean=0.0):
+
+ def t_test_2sample(sample_a, sample_b, equal_var=True):
+     """t-statistics are positive if a > b"""
++    import mne
+     a_stack = nib.concat_images(sample_a, check_affines=False)
+     b_stack = nib.concat_images(sample_b, check_affines=False)
+```
+
+```ShellSession
 $ git add images.py
 $ git commit -m 'Import mne when needed'
 [master  e791227] Import mne when needed
@@ -182,7 +215,29 @@ Switched to a new branch 'cluster'
 ### Conflicting merge
 
 Now suppose we're back on our lab computer, and thought of a different way to
-solve the `mne` problem.
+solve the `mne` problem:
+
+```ShellSession
+$ git diff
+```
+```Diff
+diff --git a/images.py b/images.py
+index 84d5c68..7aeeda0 100644
+--- a/images.py
++++ b/images.py
+@@ -7,7 +7,10 @@ import numpy as np
+ import scipy as sp
+ import scipy.stats
+ import nibabel as nib
+-import mne
++try:
++    import mne
++except ImportError:
++    pass
+
+
+ def mean_images(overlays):
+```
 
 ```ShellSession
 $ git add images.py
