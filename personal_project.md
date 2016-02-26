@@ -158,7 +158,27 @@ You'll see the old versions are gone, but we can bring them back as needed:
 $ ls
 script.m
 $ git checkout old_versions
-Switched to branch 'master'
+Switched to branch 'old_versions'
 $ ls
 script.m  script_v1.m  script_v2.m
+```
+
+Alternately, you can bring back an old version into the current space:
+
+```ShellSession
+$ git checkout master
+Switched to branch 'master'
+$ ls
+script.m
+$ git checkout old_versions script_v2.m
+$ ls
+script.m  script_v2.m
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+    new file:   script_v2.m
 ```
