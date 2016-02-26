@@ -1,4 +1,4 @@
-# Introduction
+# BU CNSO Git Introduction
 
 This repository exists to get people used to git commands and the GitHub
 interface.
