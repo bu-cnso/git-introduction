@@ -79,7 +79,7 @@ To git@github.com:effigies/sandbox.git
 Cloning the repository onto a second machine:
 
 ```ShellSession
-$USER@laptop $ git clone git@github.com:$USER/fmri_python.git
+$ git clone git@github.com:$USER/fmri_python.git
 Cloning into 'fmri_python'...
 remote: Counting objects: 22, done.
 remote: Compressing objects: 100% (14/14), done.
@@ -94,7 +94,7 @@ And while we're at it, we're going to want these files available on the
 ```ShellSession
 $ ssh scc1.bu.edu
 $USER@scc1.bu.edu's password: 
-$USER@scc.bu.edu$ git clone git@github.com:$USER/fmri_python.git
+$ git clone git@github.com:$USER/fmri_python.git
 Cloning into 'fmri_python'...
 remote: Counting objects: 22, done.
 remote: Compressing objects: 100% (14/14), done.
