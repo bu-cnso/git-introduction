@@ -48,7 +48,7 @@ The history of the repository is a collection of commits.
 ### Topics
 
 * The [GitHub model](github_model.md)
-* Personal projects
+* [Personal projects](personal_project.md)
 * [What is git, and what is GitHub?](git_and_github.md)
 
 # About README.md
