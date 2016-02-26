@@ -4,22 +4,24 @@ Let's suppose that you're working on code for your lab, and your primary goals
 are to track changes and be able to work on multiple computers without too much
 pain.
 
-Github is merely auxilliary to this mode of working, providing a nice interface
-for looking at your repository history. You could just as well use
+Github isn't necessary to use git. You could just as well use
 [gitolite](http://gitolite.com/gitolite/) or
-[Gitlab](https://about.gitlab.com/), if you're comfortable or want to become
-comfortable with some system administration.
+[Gitlab](https://about.gitlab.com/), which have the advantage of letting you
+maintain control over all copies of your code, in case there are intellectual
+property or HIPAA concerns with publication. Other online hosts may provide
+other advantages.
 
-## Simulation
+This lesson contains two parallel guides. The primary one guides you through
+setting up a repository, mirroring it on GitHub, and working from three
+locations: lab, laptop, and a cluster environment. The secondary one gives
+instructions for downloading and preparing a copy of an already constructed
+repository. The two guides converge, at which point we will practice resolving
+merge conflicts.
 
-Fork [fmri_python](https://github.com/bu-cnso/fmri_python/). This is a
-repository where I simulate the process of managing a repository on different
-machines, represented by different branches.
+To start, fork [fmri_python](https://github.com/bu-cnso/fmri_python/) into your
+GitHub user. Further instructions will be labeled with **Practice setup**.
 
-I will walk you through how we set things up, but the **Simulation setup**
-subheadings will be actual instructions you need to participate.
-
-### Starting a repository
+## Starting a repository
 
 Let's assume we've been working for a while, and want to start managing our
 project with git.
@@ -58,17 +60,17 @@ $ git commit -m 'Functions to work with FreeSurfer datasets'
 * `git add` - Stage (prepare to commit) a file
 * `git commit -m <MESSAGE>` - Commit files with a *commit message*
 
-### Using GitHub as a remote
+## Using GitHub as a remote
 
 Create a GitHub repository:
 
 ![new repo](images/new_repo.png)
 
-Like so...
+And enter some basic details for your repository:
 
 ![repo details](images/repo_details.png)
 
-And push our repository:
+Push repository to the new remote:
 
 ```ShellSession
 $ git remote add origin git@github.com:$USER/fmri_python.git
@@ -83,7 +85,7 @@ To git@github.com:effigies/sandbox.git
  Branch master set up to track remote branch master from origin.
 ```
 
-#### Simulation setup
+#### Practice setup
 
 To get to this point, simply clone the repository onto your computer.
 
@@ -101,7 +103,7 @@ Your GitHub fork is automatically set up as a remote, so you're all set.
    on `<REMOTE>` (creates remote branch, if necessary)
 * `git clone <URL>` - Copy repository from remote URL
 
-### Working from other machines
+## Working from other machines
 
 Cloning the repository onto a laptop, so we can work from home:
 
@@ -163,7 +165,7 @@ $ git commit -m 'Import mne when needed'
  1 file changed, 2 insertions(+), 1 deletions(-)
 ```
 
-#### Simulation setup
+#### Practice setup
 
 First checkout the `laptop/master` branch:
 
@@ -188,7 +190,7 @@ Branch laptop/master set up to track remote branch master from origin.
 * `git branch --set-upstream-to` - Change the *tracking branch* of the current
   branch
 
-### Setting up a variant repository
+## Setting up a variant repository
 We're going to want these files available on the
 [SCC](https://www.bu.edu/tech/support/research/computing-resources/scc/):
 
@@ -223,7 +225,7 @@ $ git commit -m 'Add python script submitter'
  create mode 100644 submitter.sh
 ```
 
-#### Simulation setup
+#### Practice setup
 
 Check out the cluster branch:
 
@@ -237,7 +239,7 @@ Switched to a new branch 'cluster'
 
 * `git checkout -b` - Create new branch at the current commit
 
-### Conflicting merge
+## Conflicting merge
 
 Now suppose we're back on our lab computer, and thought of a different way to
 solve the `mne` problem:
@@ -277,7 +279,7 @@ And we like this change, so push it to GitHub:
 $ git push
 ```
 
-#### Simulation setup
+#### Practice setup
 
 No setup needed. You're caught up, now. Follow along from here on out.
 
@@ -308,7 +310,8 @@ To git@github.com:$USER/fmri_python.git
 
 *Note that this is a little complicated than the usual `git push`. Because
 `laptop/master` ≠ `master`, we have to specify the remote name, local branch,
-and remote branch. This is messiness caused by the simulation. Sorry.*
+and remote branch. This is messiness caused by the how I designed the lesson.
+Sorry.*
 
 It asks us to pull first, so we pull:
 
