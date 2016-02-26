@@ -40,6 +40,10 @@ a porcelain, integrated with GitHub.
 
 ## Alternatives to GitHub
 
+GitHub isn't unique! Getting to know competing software/services will help
+solidify the difference between the parts that are git, and the parts that
+are GitHub.
+
 * [BitBucket](https://bitbucket.org) - Similar to GitHub, built for
   [Mercurial](https://www.mercurial-scm.org/), but expanded to support git
   repositories
