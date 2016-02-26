@@ -51,6 +51,11 @@ The history of the repository is a collection of commits.
 * Personal projects
 * [What is git, and what is GitHub?](git_and_github.md)
 
+### The Cheat Sheet
+
+This page will see you through most situations you're likely to run into:
+[Git Cheat Sheet](images/cheat_sheet.png)
+
 # About README.md
 
 This file is written in
