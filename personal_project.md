@@ -366,6 +366,85 @@ To git@github.com:$USER/fmri_python.git
    e791227..e57b4e9  laptop/master -> master
 ```
 
+#### Bonus: Incomplete merge
+
+Let's look at the log, and make sure we really just
+
+```ShellSession
+$ git log --oneline | head -n 3
+e57b4e9 Merge branch 'master' of github.com:$USER/fmri_python into laptop/master
+e791227 Import mne when needed
+645e0c4 Don't worry if we don't have mne
+$ git diff 645e0c4
+```
+```Diff
+diff --git a/images.py b/images.py
+index 7aeeda0..65fbf4a 100644
+--- a/images.py
++++ b/images.py
+@@ -33,6 +33,7 @@ def t_test_normalized_images(overlays):
+
+ def t_test_images(images, popmean=0.0):
+     """Perform per-entry t-test on nibabel spatial images"""
++    import mne
+     stack = nib.concat_images(images, check_affines=False)
+
+     tstats, pvalues = sp.stats.ttest_1samp(stack.get_data(), popmean, axis=3)
+@@ -44,6 +45,7 @@ def t_test_images(images, popmean=0.0):
+
+ def t_test_2sample(sample_a, sample_b, equal_var=True):
+     """t-statistics are positive if a > b"""
++    import mne
+     a_stack = nib.concat_images(sample_a, check_affines=False)
+     b_stack = nib.concat_images(sample_b, check_affines=False)
+```
+
+It turns out we forgot to check for changes that git didn't detect as conflicts.
+You can remove these lines manually, but you can also revert up the other side
+of the history tree:
+
+```ShellSession
+$ git revert e57b4e9 -m 2
+[laptop/master cb11727] Revert "Merge branch 'master' of github.com:$USER/fmri_python into laptop/master"
+ 1 file changed, 2 deletions(-)
+$ git push
+```
+
+## Updating the `cluster` branch
+
+We've now done a lot of work, and we want to pull our changes onto the SCC.
+
+```ShellSession
+$ git checkout cluster
+```
+
+Rather than updating the `master` branch on the cluster, you can just fetch,
+which gives your local repository access to any updates that have happened on a
+remote.
+
+```ShellSession
+$ git fetch origin
+```
+
+*In the case of this simulation, this won't do anything, because we're not
+actually working on different computers.*
+
+Now we can just merge the changes from `origin/master`:
+
+```ShellSession
+$ git merge origin/master
+Merge made by the 'recursive' strategy.
+ images.py | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+```
+
+That's it! Because there weren't conflicts, this was super easy. Go ahead and
+push your cluster branch, so it's backed up on GitHub.
+
+```ShellSession
+$ git push
+```
+
 ## Aside: Dealing with `v1 ... vN` files
 
 A pretty common precursor to version control is to simply copy working versions
