@@ -179,6 +179,95 @@ Branch cluster set up to track remote branch cluster from origin.
 Switched to a new branch 'cluster'
 ```
 
+### Conflicting merge
+
+Now suppose we're back on our lab computer, and thought of a different way to
+solve the `mne` problem.
+
+```ShellSession
+$ git add images.py
+$ git commit -m 'Don't worry if we don't have mne'
+[master  645e0c4] Don't worry if we don't have mne
+ 1 file changed, 4 insertions(+), 1 deletions(-)
+```
+
+And we like this change, so push it to GitHub:
+
+```ShellSession
+$ git push
+```
+
+##### Simulation setup
+
+No setup needed. You're caught up, now. Follow along from here on out.
+
+## Conflict Resolution
+
+Next time we want to work from our laptop...
+```ShellSession
+$ git checkout laptop/master
+```
+
+...we try to push our changes, but get:
+
+```ShellSession
+$ git push origin laptop/master:master
+To git@github.com:$USER/fmri_python.git
+ ! [rejected]        laptop/master -> master (non-fast-forward)
+ error: failed to push some refs to 'git@github.com:$USER/fmri_python.git'
+ hint: Updates were rejected because a pushed branch tip is behind its remote
+ hint: counterpart. Check out this branch and integrate the remote changes
+ hint: (e.g. 'git pull ...') before pushing again.
+ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+```
+
+*Note that this `git push` command is a little more complicated than usual.
+Because `laptop/master` != `master`, we have to specify the remote name, local
+branch, and remote branch.*
+
+It asks us to pull first, so we pull:
+
+```ShellSession
+$ git pull
+Auto-merging images.py
+CONFLICT (content): Merge conflict in images.py
+Automatic merge failed; fix conflicts and then commit the result.
+$ git status
+On branch throwaway
+Your branch and 'origin/master' have diverged,
+and have 1 and 1 different commit each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+
+        both modified:      images.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+So now we have to look at the file:
+
+```Python
+...
+import nibabel as nib
+<<<<<<< HEAD
+=======
+try:
+    import mne
+except ImportError:
+    pass
+>>>>>>> 645e0c40478cbdb9f6687d6bdc53417c21e3f24d
+
+...
+```
+
+`HEAD` indicates your local changes. The SHA1 hash indicates the commit we're
+merging in.
+
 ## Aside: Dealing with `v1 ... vN` files
 
 A pretty common precursor to version control is to simply copy working versions
