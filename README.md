@@ -1,23 +1,23 @@
 # Introduction
 
-This repository exists to get people used to git commands and the Github
+This repository exists to get people used to git commands and the GitHub
 interface.
 
 ## Prerequisites
 
 The following steps are required of anybody participating in this introduction.
 
-1. [Sign up for a Github account](https://github.com/join)
+1. [Sign up for a GitHub account](https://github.com/join)
 2. Request to join the [bu-cnso](https://github.com/bu-cnso) group by
    emailing me. (Or the list, if you don't know my email.)
 3. [Install](https://help.github.com/articles/set-up-git/) git on your laptop
   1. You can also use a git installation on a server you can SSH into.
-  2. The [Github client](https://desktop.github.com/) doesn't
+  2. The [GitHub client](https://desktop.github.com/) doesn't
      count.
-    1. Except that's the way Github recommends you to install git on Windows.
+    1. Except that's the way GitHub recommends you to install git on Windows.
        We won't be discussing the graphical client, so make sure you can do
        step 5 from the command-line.
-4. [Add a public key](https://help.github.com/categories/ssh/) to your Github
+4. [Add a public key](https://help.github.com/categories/ssh/) to your GitHub
    account. The private key should be on the computer you plan to use.
 5. Create an initial repository for your user and follow the instructions to
    make an initial commit.
@@ -27,7 +27,7 @@ The following steps are required of anybody participating in this introduction.
 Note that lines beginning with `$ ` are shell commands, and the lines following
 it are example output. Do not type the `$ ` prompt.
 
-Begin by setting the USER variable to your Github username:
+Begin by setting the USER variable to your GitHub username:
 
 ```bash
 $ export USER=...
@@ -47,8 +47,9 @@ The history of the repository is a collection of commits.
 
 ### Topics
 
-* The [Github model](github_model.md)
+* The [GitHub model](github_model.md)
 * Personal projects
+* [What is git, and what is GitHub?](git_and_github.md)
 
 # About README.md
 
