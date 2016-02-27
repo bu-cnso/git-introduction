@@ -14,7 +14,7 @@ You can then clone your own repository:
 
 ```ShellSession
 $ git clone git@github.com:$USER/git-introduction.git
-Cloning into 'introduction'...
+Cloning into 'git-introduction'...
 remote: Counting objects: 21, done.
 remote: Compressing objects: 100% (14/14), done.
 remote: Total 21 (delta 3), reused 0 (delta 0), pack-reused 3
@@ -30,7 +30,7 @@ respository, and a branch is a particular history (series of commits) of the
 repository.
 
 ```ShellSession
-$ cd introduction
+$ cd git-introduction
 $ ls -AF
 .git/  images/  README.md
 $ ls -AF .git
@@ -46,8 +46,8 @@ We can see the initial state by running the following:
 
 ```ShellSession
 $ git remote -v
-origin  git@github.com:$USER/introduction.git (fetch)
-origin  git@github.com:$USER/introduction.git (push)
+origin  git@github.com:$USER/git-introduction.git (fetch)
+origin  git@github.com:$USER/git-introduction.git (push)
 $ git status
 On branch master
 Your branch is up-to-date with 'origin/master'.
@@ -64,14 +64,14 @@ edfcd33 Miscopied URL
 Let's set an upstream remote:
 
 ```ShellSession
-$ git remote add upstream git@github.com:bu-cnso/introduction.git
+$ git remote add upstream git@github.com:bu-cnso/git-introduction.git
 $ git remote -v
-origin  git@github.com:$USER/introduction.git (fetch)
-origin  git@github.com:$USER/introduction.git (push)
-upstream    git@github.com:bu-cnso/introduction.git (fetch)
-upstream    git@github.com:bu-cnso/introduction.git (push)
+origin  git@github.com:$USER/git-introduction.git (fetch)
+origin  git@github.com:$USER/git-introduction.git (push)
+upstream    git@github.com:bu-cnso/git-introduction.git (fetch)
+upstream    git@github.com:bu-cnso/git-introduction.git (push)
 $ git fetch upstream
-From github.com:bu-cnso/introduction
+From github.com:bu-cnso/git-introduction
  * [new branch]      master     -> upstream/master
 ```
 
@@ -115,7 +115,7 @@ Any changes you commit will now be tracked by this branch. Set this branch to
 ```ShellSession
 $ git push -u origin new_contributor
 Total 0 (delta 0), reused 0 (delta 0)
-To git@github.com:$USER/introduction.git
+To git@github.com:$USER/git-introduction.git
  * [new branch]      new_contributor -> new_contributor
 Branch new_contributor set up to track remote branch new_contributor from origin.
 ```
@@ -165,7 +165,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (2/2), done.
 Writing objects: 100% (3/3), 309 bytes | 0 bytes/s, done.
 Total 3 (delta 0), reused 0 (delta 0)
-To git@github.com:$USER/introduction.git
+To git@github.com:$USER/git-introduction.git
    7f177b7..d89a96d  new_contributor -> new_contributor
 ```
 
